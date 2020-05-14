@@ -1,0 +1,104 @@
+{
+  "samples": [
+    {
+      "id": "eac697f8-bcff-441c-3c2a-eecfeb9bd38b",
+      "sample_name": "RCIGM sample",
+      "sample_type": "DNA",
+      "sample_collected": "2020-04-28",
+      "sample_volume": "1 ml",
+      "sample_comment": "",
+      "test_type": "RWGS",
+      "test_comment": ""
+    },
+    {
+      "id": "a7fe5ebf-cdd3-4194-37f6-88b18903dd25",
+      "sample_name": "SAMPLE1",
+      "sample_type": "Saliva",
+      "sample_collected": "2020-01-01",
+      "sample_volume": "1 ml",
+      "sample_comment": "Important Sample",
+      "test_type": "URWGS",
+      "test_comment": ""
+    },
+    {
+      "id": "5459e0ff-9591-4e4c-3c17-10e122cbd778",
+      "sample_name": "SAMPLE2",
+      "sample_type": "Blood",
+      "sample_collected": "2020-05-07",
+      "sample_volume": "2ML",
+      "sample_comment": "Important Sample",
+      "test_type": "URWGS",
+      "test_comment": ""
+    },
+    {
+      "id": "afc277f0-41d8-4d47-8368-f8f653213de1",
+      "sample_name": "Sample3",
+      "sample_type": "Saliva",
+      "sample_collected": "2020-05-07",
+      "sample_volume": "2ML",
+      "sample_comment": "Important Sample",
+      "test_type": "ID-CHECK",
+      "test_comment": ""
+    },
+    {
+      "id": "0fc5ccae-358a-4db9-3b10-84ad9a204b97",
+      "sample_name": "Sample4",
+      "sample_type": "Urine",
+      "sample_collected": "2020-05-07",
+      "sample_volume": "2ML",
+      "sample_comment": "This is an important sample",
+      "test_type": "RWGS",
+      "test_comment": ""
+    },
+    {
+      "id": "fb439582-2e19-4e02-3947-e1329153bdb3",
+      "sample_name": "CARLOS",
+      "sample_type": "Blood",
+      "sample_collected": "DSADSA",
+      "sample_volume": "FDDS",
+      "sample_comment": "",
+      "test_type": "ID-CHECK",
+      "test_comment": ""
+    },
+    {
+      "sample_name": "CARLOS",
+      "sample_type": "Blood",
+      "sample_collected": "More information",
+      "sample_volume": "Info",
+      "sample_comment": "",
+      "test_type": "ID-CHECK",
+      "test_comment": "",
+      "id": "f47ff50e-bae0-4250-3b06-9c3c6d5c4d09"
+    },
+    {
+      "id": "3860a1a2-39d1-42ca-3a2d-319556461c8a",
+      "sample_name": "ANOTHER SAMPLE",
+      "sample_type": "Saliva",
+      "sample_collected": "2020-05-07",
+      "sample_volume": "1 ml",
+      "sample_comment": "Important Sample",
+      "test_type": "URWGS",
+      "test_comment": ""
+    },
+    {
+      "sample_name": "ANOTHER SAMPLE1",
+      "sample_type": "Urine",
+      "sample_collected": "2020-05-07",
+      "sample_volume": "11 ml",
+      "sample_comment": "Important Sample",
+      "test_type": "URWGS",
+      "test_comment": "",
+      "id": "9f2cbb5f-7bdf-4e92-3be4-b9174e3fce5b"
+    },
+    {
+      "id": "e992b268-c8dd-4a81-3ab9-7403edfd70a7",
+      "sample_name": "",
+      "sample_type": "Blood",
+      "sample_collected": "",
+      "sample_volume": "",
+      "sample_comment": "",
+      "test_type": "ID-CHECK",
+      "test_comment": ""
+    }
+  ]
+}
