@@ -1,3 +1,4 @@
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +67,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+=======
+# react_sample_submission_project
+CRUD operations for sample submission, uses axios for requesting the back end and bootstrap for styling
+
+For serving the back end and for testing purposes you need to use [json-server](https://github.com/typicode/json-server) on this way: 
+
+
+json-server --watch -p3001 src/samples.json 
+
