@@ -1,16 +1,6 @@
 {
   "samples": [
     {
-      "id": "eac697f8-bcff-441c-3c2a-eecfeb9bd38b",
-      "sample_name": "RCIGM sample",
-      "sample_type": "DNA",
-      "sample_collected": "2020-04-28",
-      "sample_volume": "1 ml",
-      "sample_comment": "",
-      "test_type": "RWGS",
-      "test_comment": ""
-    },
-    {
       "id": "a7fe5ebf-cdd3-4194-37f6-88b18903dd25",
       "sample_name": "SAMPLE1",
       "sample_type": "Saliva",
@@ -91,14 +81,14 @@
       "id": "9f2cbb5f-7bdf-4e92-3be4-b9174e3fce5b"
     },
     {
-      "id": "e992b268-c8dd-4a81-3ab9-7403edfd70a7",
-      "sample_name": "",
-      "sample_type": "Blood",
-      "sample_collected": "",
-      "sample_volume": "",
-      "sample_comment": "",
+      "sample_name": "AAAAA",
+      "sample_type": "CSF",
+      "sample_collected": "BBB",
+      "sample_volume": "CCC",
+      "sample_comment": "DDD",
       "test_type": "ID-CHECK",
-      "test_comment": ""
+      "test_comment": "",
+      "id": "fc35246b-63f1-4e63-3d47-373d2f4d9e27"
     }
   ]
 }
