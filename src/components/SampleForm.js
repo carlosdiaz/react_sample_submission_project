@@ -42,7 +42,6 @@ class SampleForm extends Component {
   
   handleInputChange(e) {
     const {value, name} = e.target;
-    console.log(value, name);
     this.setState({
       [name]: value
     });
@@ -53,14 +52,10 @@ class SampleForm extends Component {
 
     try {
         const id  = uuidv4();
-        console.log('create sample');
-        console.log(this.state);
         const { sample_name, sample_type, sample_collected, sample_volume, sample_comment, test_type, test_comment } = this.state;
         let res = await api.post('/', {id, sample_name, sample_type, sample_collected, sample_volume, sample_comment, test_type, test_comment})    
-        console.log(res);
         // we set into the props the new value of adding a new task
         this.props.onAddSample(this.state);
-        //console.log(this.props);
         this.setState({
             sample_name: '',
             sample_type: 'Blood',
@@ -80,8 +75,6 @@ class SampleForm extends Component {
     // this function will be called from the Parent sample
     let data = await api.get('/'+ itemId).then(({data}) => data);
 
-    console.log(data.sample_name, data.test_type);
-
     this.setState({
       sample_name: data.sample_name,
       sample_type: data.sample_type,
@@ -94,7 +87,6 @@ class SampleForm extends Component {
       sample_uuid: data.id
     });
     window.scrollTo(0, this.myRef.current.offsetTop);
-    console.log('updating variable ', this.state['update_sample']);
 
   }
 
@@ -102,9 +94,6 @@ class SampleForm extends Component {
     console.log('Calling the update sample function');
     e.preventDefault();
     // we get the itemId from the state
-    
-    console.log(this.state.sample_uuid);
-
     
     try {
       let id  = this.state.sample_uuid;
@@ -208,7 +197,6 @@ class SampleForm extends Component {
 
         {(() => {
         if (this.state['update_sample']) {
-          console.log('focus the button');
           return (
             <div className="btn-group">
             <button className="btn btn-secondary pull-left mx-2" onClick={this.updateSample.bind()}>Update</button>
