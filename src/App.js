@@ -1,6 +1,5 @@
 import React, { Component, createRef } from 'react';
 import logo from './logo.svg';
-//import logo from './logo.jpeg'
 import './App.css';
 import axios from 'axios'
 import SampleForm from './components/SampleForm'
@@ -12,9 +11,8 @@ const api = axios.create({
 
 
 class App extends Component{
-  // PARENT CLASS
+  // Parent class
   // This component is in charge of rendering all the samples in a card view format
-
     constructor() {
         super();
         // we create a reference to the children element
@@ -42,41 +40,29 @@ class App extends Component{
 
 
   deleteSample = async(itemId) => {
+    // we delete the sample selected by the user
+    // 
   
     try {
-      console.log('ItemId: ' + itemId);
-      // the line from below describes the 
       //let data = await api.delete('/', { params: { id: itemId } })
       await api.delete('/' + itemId )
-      // do we need to run the getTasks function?  
+      // do we need to run the getSamples function?  
       this.getSamples();
     } catch (err) {
       console.log(err);
     }
   }
 
-  updateSample = async(itemId) => {
-    // this method will allow to update the sample information for the sample selected
-    console.log('Inside the updateSample');
-
-  }
 
   handleAddSample(sample) {
     // This function will handle the state of the application, whenever a change is being made
     // on the state it will reflect the change 
 
-    console.log('handleAddSample');
     this.setState({
       samples: [...this.state.samples, sample]
     })
     this.getSamples();
   }
-
-  // getOnEditMode() {
-
-  //   return this.isOnEditMode;
-
-  // }
   
   // begin the section where all the card views are created
   render() {
