@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 
-
 const api = axios.create({
-    //baseURL: 'https://my-json-server.typicode.com/carlosdiaz/carlosdiaz_cards_project/todos'
     baseURL: 'http://localhost:3001/samples'
 })
 
@@ -36,13 +34,13 @@ class SampleForm extends Component {
     this.createSample = this.createSample.bind(this);
     this.getSampleId = this.getSampleId.bind(this);
     this.updateSample = this.updateSample.bind(this);
+    this.cancelSampleEditing = this.cancelSampleEditing.bind(this);
 
   }
 
   
   handleInputChange(e) {
     const {value, name} = e.target;
-    console.log(value, name);
     this.setState({
       [name]: value
     });
@@ -53,14 +51,10 @@ class SampleForm extends Component {
 
     try {
         const id  = uuidv4();
-        console.log('create sample');
-        console.log(this.state);
         const { sample_name, sample_type, sample_collected, sample_volume, sample_comment, test_type, test_comment } = this.state;
-        let res = await api.post('/', {id, sample_name, sample_type, sample_collected, sample_volume, sample_comment, test_type, test_comment})    
-        console.log(res);
+        await api.post('/', {id, sample_name, sample_type, sample_collected, sample_volume, sample_comment, test_type, test_comment})    
         // we set into the props the new value of adding a new task
         this.props.onAddSample(this.state);
-        //console.log(this.props);
         this.setState({
             sample_name: '',
             sample_type: 'Blood',
@@ -77,10 +71,8 @@ class SampleForm extends Component {
   }
 
   getSampleId = async (itemId) => {
-    // this function will be called from the Parent sample
+    // this function will be called from the Parent sample to retrieve the sample information
     let data = await api.get('/'+ itemId).then(({data}) => data);
-
-    console.log(data.sample_name, data.test_type);
 
     this.setState({
       sample_name: data.sample_name,
@@ -94,17 +86,13 @@ class SampleForm extends Component {
       sample_uuid: data.id
     });
     window.scrollTo(0, this.myRef.current.offsetTop);
-    console.log('updating variable ', this.state['update_sample']);
 
   }
 
   updateSample = async(e) => {
-    console.log('Calling the update sample function');
+    // we update the sample informacion, 
     e.preventDefault();
     // we get the itemId from the state
-    
-    console.log(this.state.sample_uuid);
-
     
     try {
       let id  = this.state.sample_uuid;
@@ -114,7 +102,6 @@ class SampleForm extends Component {
       console.log(res);
       // we set into the props the new value of adding a new task
       this.props.onAddSample(this.state);
-      //console.log(this.props);
       this.setState({
           sample_name: '',
           sample_type: 'Blood',
@@ -131,10 +118,29 @@ class SampleForm extends Component {
 
   }
 
+  cancelSampleEditing(e) {
+        // we cancel the editining information functionality
+        e.preventDefault();        
+        try {
+          this.setState({
+              sample_name: '',
+              sample_type: 'Blood',
+              sample_collected: '',
+              sample_volume: '',
+              sample_comment: '',
+              test_type: 'ID-CHECK',
+              test_comment: '',
+              update_sample : false
+          });
+        } catch (err) {
+          console.log(err);
+        }
+  }
+
+
   render() {
     return (
       <div className="card">
-        {/* <form onSubmit={this.createSample} className="card-body"> */}
         <form className="card-body">
           <div className="form-group">
             <input
@@ -207,12 +213,13 @@ class SampleForm extends Component {
           </div>
 
         {(() => {
+        // there must be a better way to do this distinction, probably creating a different component
+        // one for creating and second for editing
         if (this.state['update_sample']) {
-          console.log('focus the button');
           return (
             <div className="btn-group">
             <button className="btn btn-secondary pull-left mx-2" onClick={this.updateSample.bind()}>Update</button>
-            <button className="btn btn-secondary pull-right mr-2">Cancel</button>
+            <button className="btn btn-secondary pull-right mr-2" onClick={this.cancelSampleEditing.bind()}>Cancel</button>
             </div>
           )
         } else  {
